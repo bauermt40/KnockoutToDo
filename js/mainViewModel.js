@@ -12,10 +12,6 @@ qvid.mainViewModel = function() {
     
     self.newTask = ko.observable();
     
-    self.finishedCss = ko.computed(function() {
-        return 'finished'; 
-    });
-    
     self.addNewTask = function() {
         self.todos.unshift(new qvid.TodoItem(self.newTask(), false));
         self.newTask('');
