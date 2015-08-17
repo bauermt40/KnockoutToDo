@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ng-todo</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">Knockout ToDo</a>
+      <a class="navbar-right navbar-img" href="#"><img src="img/knockoutjs.png" style="width:95px;height:25px;" alt=""></a>
+    </div>
+  </div>
+
+  <section>
+    <div class="outer-container">
+
+      <div class="add-todo-group input-group input-group-lg">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-list-alt"></i>
+        </span>
+        <input data-bind="value: newTask" placeholder="New Todo" class="form-control" type="text">
+        <span class="input-group-btn">
+          <button data-bind="click: addNewTask" class="btn btn-success" type="button"><!-- click  -->
+            <i class="glyphicon glyphicon-plus"></i>
+          </button>
+        </span>
+      </div>
+
+      <div data-bind="foreach: todos">
+        <div class="input-group input-group-lg">
+        <span class="input-group-addon">
+          <input type="checkbox" data-bind="checked: finished">
+        </span>
+        <input data-bind="value: name, css: {'finished': finished}" class="form-control" type="text">
+        <span class="input-group-btn">
+          <button data-bind="click: deleteTodo" class="btn btn-danger" type="button"><!-- click  -->
+            <i class="glyphicon glyphicon-remove"></i>
+          </button>
+        </span>
+      </div>
+      </div>
+      
+
+      <div class="btn-clear-group">
+        <button data-bind="click: clearCompleted" class="btn btn-primary btn-clear">Clear Completed</button><!-- click -->
+      </div>
+    </div>
+  </section>
+</body>
+
+<!-- JS Assets -->
+<script src="js/knockout-3.3.0.js"></script>
+<script src="js/jquery-2.0.2.js"></script>
+<script src="js/app.js"></script>
+<script src="js/model.js"></script>
+<script src="js/mainViewModel.js"></script>
+</html>
